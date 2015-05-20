@@ -1,0 +1,6 @@
+*.sln
+*.v12.*
+bin
+obj
+packages
+
