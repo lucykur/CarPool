@@ -6,7 +6,9 @@ namespace CarPool
     {
         public CarPoolModule()
         {
-            Get["/"] = parameters => "Hello World";
+            Get["/"] = _ => View["Content/templates/app"];
         }
+
+     
     }
 }

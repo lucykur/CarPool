@@ -1,5 +1,6 @@
 ﻿using System;
 using Nancy;
+using Nancy.Conventions;
 
 namespace CarPool
 {
@@ -8,6 +9,23 @@ namespace CarPool
         protected override IRootPathProvider RootPathProvider
         {
             get { return new CustomRootPathProvider(); }
+        }
+
+        protected override void ConfigureConventions(NancyConventions conventions)
+        {
+            base.ConfigureConventions(conventions);
+
+            conventions.StaticContentsConventions.Add(
+                StaticContentConventionBuilder.AddDirectory("app", @"Content/app")
+            );
+
+            conventions.StaticContentsConventions.Add(
+              StaticContentConventionBuilder.AddDirectory("bower_components", @"bower_components")
+          );
+
+            conventions.StaticContentsConventions.Add(
+               StaticContentConventionBuilder.AddDirectory("templates", @"Content/templates")
+           );
         }
 
     }
