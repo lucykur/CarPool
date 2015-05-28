@@ -1,12 +1,12 @@
 ﻿require.config({
     baseUrl: "/",
     paths: {
-        "angular": "bower_components/angular/angular",
-        "Q": "bower_components/q/q",
-        "jquery": "bower_components/jquery/dist/jquery.min",
+        "angular": "node_modules/angular/angular",
+        "Q": "node_modules/q/q",
+        "jquery": "node_modules/jquery/dist/jquery.min",
         //Libs
-        "lodash": "bower_components/lodash/lodash",
-        "angular-route": "bower_components/angular-route/angular-route",
+        "lodash": "node_modules/lodash/lodash",
+        "angular-route": "node_modules/angular-route/angular-route",
 
         //Controllers
         "hello-controller": "app/controller/hello-controller",

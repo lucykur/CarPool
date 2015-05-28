@@ -16,15 +16,15 @@ namespace CarPool
             base.ConfigureConventions(conventions);
 
             conventions.StaticContentsConventions.Add(
-                StaticContentConventionBuilder.AddDirectory("app", @"Content/app")
+                StaticContentConventionBuilder.AddDirectory("app", @"app")
             );
 
             conventions.StaticContentsConventions.Add(
-              StaticContentConventionBuilder.AddDirectory("bower_components", @"bower_components")
+              StaticContentConventionBuilder.AddDirectory("node_modules", @"node_modules")
           );
 
             conventions.StaticContentsConventions.Add(
-               StaticContentConventionBuilder.AddDirectory("templates", @"Content/templates")
+               StaticContentConventionBuilder.AddDirectory("templates", @"templates")
            );
         }
 

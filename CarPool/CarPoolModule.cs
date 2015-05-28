@@ -6,8 +6,8 @@ namespace CarPool
     {
         public CarPoolModule()
         {
-            Get["/"] = _ => View["Content/templates/app"];
-            Get["/hello"] = _ => View["Content/templates/app"];
+            Get["/"] = _ => View["templates/app"];
+            Get["/hello"] = _ => View["templates/app"];
         }
 
      
