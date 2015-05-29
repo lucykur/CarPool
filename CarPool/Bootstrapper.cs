@@ -16,7 +16,7 @@ namespace CarPool
             base.ConfigureConventions(conventions);
 
             conventions.StaticContentsConventions.Add(
-                StaticContentConventionBuilder.AddDirectory("app", @"app")
+                StaticContentConventionBuilder.AddDirectory("dist", @"app/dist")
             );
 
             conventions.StaticContentsConventions.Add(

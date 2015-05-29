@@ -1,27 +1,38 @@
-﻿define(["angular", "Q", "jquery", "app/controller/controllers","angular-route"],
-  function (angular, Q, $, controllers) {
-      var init = function () {
-          var app = angular.module('CarPool', ["ngRoute"]);
-          controllers.init(app);
-       
-          app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-              $routeProvider.
-                when('/hello', { templateUrl: '/templates/hello.html', controller: 'helloController' }).
-                otherwise({ redirectTo: '/hello' });
+﻿var angular = require("angular");
+var Q = require("q");
+var $ = require("jquery");
+require("ui-router");
+var controllers = require("./controller/controllers");
 
-              $locationProvider.html5Mode(true);
-          }]);
-        
-          return app;
-      };
 
-      var bootstrap = function(app) {
-          var deferred = Q.defer();
-          var injector = angular.bootstrap($('#CarPoolApp'), ['CarPool']);
-          deferred.resolve([injector, app]);
+module.exports = {
+    init: function() {
+        var app = angular.module('CarPool', ['ui.router']);
+        controllers.init(app);
+        app.config([
+            '$urlRouterProvider', '$stateProvider', '$locationProvider', function($urlRouterProvider, $stateProvider, $locationProvider) {
+                $urlRouterProvider.
+                    otherwise('/hello');
 
-          return deferred.promise;
+                $stateProvider
+                    .state('hello', {
+                        url: "/hello",
+                        templateUrl: "/templates/hello.html",
+                        controller: "helloController"
+                    });
 
-      };
-      return { init: init, bootstrap: bootstrap };
-  });
+                $locationProvider.html5Mode(true);
+            }
+        ]);
+        return app;
+    },
+
+    bootstrap: function(app) {
+        var deferred = Q.defer();
+        var injector = angular.bootstrap($('#CarPoolApp'), ['CarPool']);
+        deferred.resolve([injector, app]);
+
+        return deferred.promise;
+
+    }
+};

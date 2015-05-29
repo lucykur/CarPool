@@ -1,5 +1,3 @@
-﻿define([], function () {
-    return function ($scope) {
+﻿module.exports = function ($scope) {
         $scope.name = "hello";
-    };
-});
+};

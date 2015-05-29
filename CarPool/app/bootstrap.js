@@ -1,5 +1,4 @@
-﻿require(["app.config"], function (config) {
-    require(["app/app"], function (app) {
-        app.bootstrap(app.init());
-    });
+﻿var carpoolApp = require("./app");
+carpoolApp.bootstrap(carpoolApp.init()).then(function () {
+    console.log("app initialized");
 });

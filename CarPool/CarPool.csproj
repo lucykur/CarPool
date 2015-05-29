@@ -65,14 +65,14 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\app\app.config.js" />
-    <Content Include="Content\app\app.js" />
-    <Content Include="Content\app\bootstrap.js" />
-    <Content Include="Content\app\controller\controllers.js" />
-    <Content Include="Content\app\controller\hello-controller.js" />
+    <Content Include="app\app.js" />
+    <Content Include="app\bootstrap.js" />
+    <Content Include="app\controller\controllers.js" />
+    <Content Include="app\controller\hello-controller.js" />
+    <Content Include="gruntfile.js" />
     <Content Include="icon.png" />
-    <Content Include="Content\templates\app.html" />
-    <Content Include="Content\templates\hello.html" />
+    <Content Include="templates\app.html" />
+    <Content Include="templates\hello.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -90,7 +90,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="app\dist\" />
+    <Folder Include="Content\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,16 +1,16 @@
 ﻿<!DOCTYPE html>
-<html>
-    <head>
-        <base href="/">
-        <script src="/node_modules/requirejs/require.js" data-main="/app/bootstrap.js"></script>
-    </head>
+<html ng-app="CarPool">
+<head>
+    <base href="/">
+    <script src="/dist/carpool.js"></script>
+</head>
 
 <body>
     <div class="body">
-            <div id="CarPoolApp" name="CarPoolApp">
-                <div ng-view="ng-view">
-                </div>
+        <div id="CarPoolApp" name="CarPoolApp">
+            <div ui-view>
             </div>
+        </div>
     </div>
 </body>
 </html>
