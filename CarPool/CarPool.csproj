@@ -69,6 +69,7 @@
     <Content Include="app\bootstrap.js" />
     <Content Include="app\controller\controllers.js" />
     <Content Include="app\controller\hello-controller.js" />
+    <Content Include="app\routes\routes.js" />
     <Content Include="gruntfile.js" />
     <Content Include="icon.png" />
     <Content Include="templates\app.html" />

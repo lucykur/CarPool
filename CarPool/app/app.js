@@ -3,27 +3,15 @@ var Q = require("q");
 var $ = require("jquery");
 require("ui-router");
 var controllers = require("./controller/controllers");
+var routes = require("./routes/routes");
 
 
 module.exports = {
     init: function() {
         var app = angular.module('CarPool', ['ui.router']);
         controllers.init(app);
-        app.config([
-            '$urlRouterProvider', '$stateProvider', '$locationProvider', function($urlRouterProvider, $stateProvider, $locationProvider) {
-                $urlRouterProvider.
-                    otherwise('/hello');
 
-                $stateProvider
-                    .state('hello', {
-                        url: "/hello",
-                        templateUrl: "/templates/hello.html",
-                        controller: "helloController"
-                    });
-
-                $locationProvider.html5Mode(true);
-            }
-        ]);
+        app.config(['$urlRouterProvider', '$stateProvider', '$locationProvider', routes]);
         return app;
     },
 
