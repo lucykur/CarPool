@@ -17,8 +17,10 @@ module.exports = {
 
     bootstrap: function(app) {
         var deferred = Q.defer();
-        var injector = angular.bootstrap($('#CarPoolApp'), ['CarPool']);
-        deferred.resolve([injector, app]);
+        angular.element(document).ready(function () {
+            var injector = angular.bootstrap(document, ['CarPool']);
+            deferred.resolve([injector, app]);
+        });
 
         return deferred.promise;
 
