@@ -1,13 +1,14 @@
 ﻿using Nancy;
 
-namespace CarPool
+namespace CarPool.Modules
 {
     public class CarPoolModule : NancyModule
     {
         public CarPoolModule()
         {
-            Get["/"] = _ => View["templates/app"];
-            Get["/hello"] = _ => View["templates/app"];
+            Get["/"] = _ => View["index"];
+            Get["/hello"] = _ => View["index"];
+          
         }
 
      
