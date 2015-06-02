@@ -15,13 +15,6 @@ namespace CarPool.Modules
 
             Get["/Login"] = LogIn;
             Post["/Login"] = _ => AuthenticateUser();
-
-            Get["/logout"] = LogOut;
-        }
-
-        private dynamic LogOut(object arg)
-        {
-            return this.LogoutAndRedirect("~/");
         }
 
         private dynamic LogIn(object arg)

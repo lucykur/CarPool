@@ -1,3 +1,3 @@
 ﻿module.exports = function ($scope) {
-        $scope.name = "hello";
+    $scope.secureMessage = "I am secure";
 };

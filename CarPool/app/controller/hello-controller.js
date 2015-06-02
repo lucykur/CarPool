@@ -1,3 +1,7 @@
-﻿module.exports = function ($scope) {
-        $scope.name = "hello";
+﻿module.exports = function ($scope, $location) {
+    $scope.name = "hello";
+    $scope.navigateToSecurePage = function() {
+        $location.path("/secure");
+    };
+
 };

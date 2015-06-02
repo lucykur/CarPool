@@ -8,7 +8,7 @@ namespace CarPool.Modules
         public SecureModule() : base("/secure")
         {
            this.RequiresAuthentication();
-           Get["/"] = _ => "I am secure";
+           Get["/"] = _ => View["index"];
         }
     }
 }
