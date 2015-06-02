@@ -21,10 +21,11 @@ namespace CarPool
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("Application/json"));
 
             var response = _httpClient.GetAsync(uri).Result;
-
-            response.EnsureSuccessStatusCode();
-
-            return JsonConvert.DeserializeObject<T>(response.Content.ReadAsStringAsync().Result);
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<T>(response.Content.ReadAsStringAsync().Result);
+            }
+            return Activator.CreateInstance<T>();
         }
     }
 }

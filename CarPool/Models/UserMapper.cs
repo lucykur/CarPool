@@ -16,12 +16,14 @@ namespace CarPool.Models
 
         public IUserIdentity GetUserFromIdentifier(Guid identifier, NancyContext context)
         {
-            if (context.CurrentUser == null) return null;
             var user = _authenticationService.GetUserById(identifier);
+            if (user == null) return null;
+
             return new AuthenticatedUser
             {
                 UserName = user.Username
             };
+          
         }
     }
 }
