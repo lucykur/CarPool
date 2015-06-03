@@ -14,18 +14,25 @@ namespace CarPool
     {
         protected override void ConfigureApplicationContainer(ILifetimeScope container)
         {
-            container.Update(builder => builder.RegisterType<AuthenticationService>()
-                .WithParameter("authServiceUri", ConfigurationManager.AppSettings["AuthService"]).AsSelf());
+            container.Update(builder => builder.RegisterType<HttpClient>()
+                .Named<HttpClient>("AuthServiceClient")
+                .WithParameter("baseAddress", ConfigurationManager.AppSettings["AuthService"])
+                .AsSelf());
 
             base.ConfigureApplicationContainer(container);
         }
 
         protected override void ConfigureRequestContainer(ILifetimeScope container, NancyContext context)
         {
-            container.Update(builder => builder.RegisterType<UserMapper>().As<IUserMapper>());
+            container.Update(builder =>
+            {
+                builder.RegisterType<UserMapper>().As<IUserMapper>();
+                builder.RegisterType<AuthenticationService>()
+                   .WithParameter("httpClient", container.ResolveNamed<HttpClient>("AuthServiceClient"))
+                   .AsSelf();
+            });
 
             base.ConfigureRequestContainer(container, context);
-
         }
 
         protected override void RequestStartup(ILifetimeScope container,IPipelines pipelines,NancyContext context)

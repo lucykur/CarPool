@@ -2,6 +2,7 @@
 using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.ModelBinding;
+using Nancy.Responses;
 
 namespace CarPool.Modules
 {
@@ -13,11 +14,11 @@ namespace CarPool.Modules
         {
             _authenticationService = authenticationService;
 
-            Get["/Login"] = LogIn;
-            Post["/Login"] = _ => AuthenticateUser();
+            Get["/login"] = LogIn;
+            Post["/login"] = _ => AuthenticateUser();
         }
 
-        private dynamic LogIn(object arg)
+        private static dynamic LogIn(object arg)
         {
             return new LoginModel();
         }
@@ -26,11 +27,11 @@ namespace CarPool.Modules
         {
             var loginModel = this.Bind<LoginModel>();
             
-            if (loginModel.Username == null || loginModel.Password == null) return  HttpStatusCode.Unauthorized;
+            if (loginModel.Username == null || loginModel.Password == null) return HttpStatusCode.Unauthorized;
 
             var user = _authenticationService.Authenticate(loginModel.Username, loginModel.Password);
 
-            return user != null ? this.LoginAndRedirect(user.Id) : HttpStatusCode.Unauthorized;
+            return user != null ? this.LoginAndRedirect(user.Id) : HttpStatusCode.Unauthorized ;
         }
     }
 }
