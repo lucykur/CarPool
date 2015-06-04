@@ -5,7 +5,7 @@ using Nancy;
 
 namespace Carpool.Tests
 {
-    public class Bootstrapper : CarPool.Bootstrapper
+    public class TestBootstrapper : Bootstrapper
     {
         protected override void ConfigureRequestContainer(ILifetimeScope container, NancyContext context)
         {

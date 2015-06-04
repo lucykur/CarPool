@@ -7,13 +7,13 @@ namespace AuthenticationService.Tests
 {
     public class AuthenticationTests
     {
-        private Bootstrapper _bootstrapper;
+        private TestBootstrapper _bootstrapper;
         private Browser _browser;
 
         [SetUp]
         public void SetUp()
         {
-            _bootstrapper = new Bootstrapper();
+            _bootstrapper = new TestBootstrapper();
             _browser = new Browser(_bootstrapper);
         }
 
