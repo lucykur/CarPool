@@ -2,15 +2,14 @@
 using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.ModelBinding;
-using Nancy.Responses;
 
 namespace CarPool.Modules
 {
     public class AuthModule : NancyModule
     {
-        private readonly AuthenticationService _authenticationService;
+        private readonly IAuthenticationService _authenticationService;
 
-        public AuthModule(AuthenticationService authenticationService)
+        public AuthModule(IAuthenticationService authenticationService)
         {
             _authenticationService = authenticationService;
 

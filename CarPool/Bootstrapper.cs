@@ -12,27 +12,31 @@ namespace CarPool
 {
     public class Bootstrapper : AutofacNancyBootstrapper
     {
+
         protected override void ConfigureApplicationContainer(ILifetimeScope container)
         {
-            container.Update(builder => builder.RegisterType<HttpClient>()
-                .Named<HttpClient>("AuthServiceClient")
-                .WithParameter("baseAddress", ConfigurationManager.AppSettings["AuthService"])
-                .AsSelf());
-
             base.ConfigureApplicationContainer(container);
+
+            var builder = new ContainerBuilder();
+            builder.RegisterType<HttpClient>()
+               .Named<HttpClient>("AuthServiceClient")
+               .WithParameter("baseAddress", ConfigurationManager.AppSettings["AuthService"])
+               .AsSelf();
+
+            builder.Update(container.ComponentRegistry);
         }
 
         protected override void ConfigureRequestContainer(ILifetimeScope container, NancyContext context)
         {
-            container.Update(builder =>
-            {
-                builder.RegisterType<UserMapper>().As<IUserMapper>();
-                builder.RegisterType<AuthenticationService>()
-                   .WithParameter("httpClient", container.ResolveNamed<HttpClient>("AuthServiceClient"))
-                   .AsSelf();
-            });
-
             base.ConfigureRequestContainer(container, context);
+            var builder = new ContainerBuilder();
+            builder.RegisterType<UserMapper>().As<IUserMapper>();
+
+            builder.RegisterType<AuthenticationService>().As<IAuthenticationService>()
+                           .WithParameter("httpClient", container.ResolveNamed<HttpClient>("AuthServiceClient"))
+                           .AsSelf();
+           
+            builder.Update(container.ComponentRegistry);
         }
 
         protected override void RequestStartup(ILifetimeScope container,IPipelines pipelines,NancyContext context)

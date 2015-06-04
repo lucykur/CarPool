@@ -64,6 +64,7 @@
     <Compile Include="AuthModuleTests.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceStubs\AuthenticationServiceStub.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarPool\CarPool.csproj">

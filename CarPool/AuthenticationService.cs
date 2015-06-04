@@ -3,7 +3,7 @@ using CarPool.Models;
 
 namespace CarPool
 {
-    public class AuthenticationService
+    public class AuthenticationService :IAuthenticationService
     {
         private readonly HttpClient _httpclient;
 

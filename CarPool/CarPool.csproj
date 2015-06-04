@@ -100,6 +100,7 @@
   <ItemGroup>
     <Compile Include="AuthenticationService.cs" />
     <Compile Include="HttpClient.cs" />
+    <Compile Include="IAuthenticationService.cs" />
     <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Modules\AuthModule.cs" />
     <Compile Include="Bootstrapper.cs" />
