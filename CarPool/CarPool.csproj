@@ -164,4 +164,8 @@ xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.1.2.0\lib\Net40\N
   <Target Name="AfterBuild">
   </Target>
   -->
+
+  <Target Name="AfterBuild">
+    <Exec Command="grunt"></Exec>
+  </Target>
 </Project>

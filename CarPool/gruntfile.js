@@ -12,12 +12,20 @@
         watch: {
             files: ['<%= jshint.files %>'],
             tasks: ['jshint']
+        },
+        browserify: {
+            dist: {
+                files: {
+                    'app/dist/carpool.js': ['app/bootstrap.js'],
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-browserify');
 
-    grunt.registerTask('default', ['jshint']);
+    grunt.registerTask('default', ['browserify']);
 
 };
