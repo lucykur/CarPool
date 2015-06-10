@@ -6,9 +6,8 @@ namespace CarPool.Modules
     {
         public CarPoolModule()
         {
-            Get["/"] = _ => View["index"];
-            Get["/hello"] = _ => View["index"];
-          
+            Get["/"] = _ => View["home"];
+            Get["/hello"] = _ => View["home"];
         }
 
      

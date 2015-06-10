@@ -1,4 +1,5 @@
-﻿@{
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
+@{
     Layout = null;
 }
 
@@ -11,12 +12,13 @@
     <base href="/">
     <script src="/dist/carpool.js"></script>
 </head>
-<body>
-    <div class="body">
-        <div id="CarPoolApp" name="CarPoolApp">
-            <div ui-view>
+    <body>
+        <div class="body">
+            <p>Welcome @Html.RenderContext.Context.CurrentUser.UserName </p>
+            <div id="CarPoolApp" name="CarPoolApp">
+                <div ui-view>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

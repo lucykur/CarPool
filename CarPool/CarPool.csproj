@@ -87,11 +87,9 @@
     <Content Include="app\bootstrap.js" />
     <Content Include="app\controller\controllers.js" />
     <Content Include="app\controller\secure-controller.js" />
-    <Content Include="app\controller\hello-controller.js" />
     <Content Include="app\routes\routes.js" />
     <Content Include="gruntfile.js" />
     <Content Include="icon.png" />
-    <Content Include="app\templates\hello.html" />
     <Content Include="app\templates\secure.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -116,6 +114,7 @@
     <Content Include="packages.config" />
     <Content Include="Views\index.cshtml" />
     <Content Include="Views\login.cshtml" />
+    <Content Include="Views\home.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -164,8 +163,8 @@ xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.1.2.0\lib\Net40\N
   <Target Name="AfterBuild">
   </Target>
   -->
-
   <Target Name="AfterBuild">
-    <Exec Command="grunt"></Exec>
+    <Exec Command="grunt">
+    </Exec>
   </Target>
 </Project>
