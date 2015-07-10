@@ -5,3 +5,7 @@ obj
 packages
 node_modules
 dist
+.nuget/
+
+*sln.DotSettings.*
+*csproj.*user

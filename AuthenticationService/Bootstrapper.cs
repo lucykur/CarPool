@@ -1,19 +1,36 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using Autofac;
-using Nancy.Bootstrapper;
+using Nancy;
 using Nancy.Bootstrappers.Autofac;
 
 namespace AuthenticationService
 {
     public class Bootstrapper :AutofacNancyBootstrapper
     {
-        protected override void ApplicationStartup(ILifetimeScope container, IPipelines pipelines)
+        protected override void ConfigureApplicationContainer(ILifetimeScope container)
         {
-            container.Update(builder => builder.RegisterType<UserRepository>().AsSelf());
-           
-            base.ApplicationStartup(container, pipelines);
+            base.ConfigureApplicationContainer(container);
+
+            var builder = new ContainerBuilder();
+            builder.RegisterType<UserRepository>().AsSelf();
+            builder.Update(container.ComponentRegistry);
 
         }
 
+        protected override IRootPathProvider RootPathProvider
+        {
+            get { return new CustomRootPathProvider(); }
+        }
+
+    }
+
+    public class CustomRootPathProvider : IRootPathProvider
+    {
+        private readonly string _rootPath = Environment.CurrentDirectory;
+
+        public string GetRootPath()
+        {
+            return _rootPath;
+        }
     }
 }
