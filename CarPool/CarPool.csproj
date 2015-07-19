@@ -79,7 +79,7 @@
     <Content Include="app\controller\controllers.js" />
     <Content Include="app\controller\secure-controller.js" />
     <Content Include="app\routes\routes.js" />
-    <Content Include="gruntfile.js" />
+    <None Include="gruntfile.js" />
     <Content Include="icon.png" />
     <Content Include="app\templates\secure.html" />
     <None Include="App.config">
@@ -105,7 +105,7 @@
     <Compile Include="Models\User.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
     <Content Include="Views\index.cshtml" />
     <Content Include="Views\login.cshtml" />
     <Content Include="Views\home.cshtml" />
