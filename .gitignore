@@ -1,4 +1,5 @@
 *.suo
+*.user
 bin
 obj
 packages
@@ -7,4 +8,4 @@ dist
 .nuget/
 
 *sln.DotSettings.*
-*csproj.*user
+
