@@ -1,5 +1,4 @@
-*.sln
-*.v12.*
+*.suo
 bin
 obj
 packages
