@@ -82,6 +82,9 @@
     <Content Include="gruntfile.js" />
     <Content Include="icon.png" />
     <Content Include="app\templates\secure.html" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.config">
       <SubType>Designer</SubType>
     </None>
@@ -139,7 +142,6 @@
   -->
   <Target Name="AfterBuild">
     <Exec Command="grunt --no-color" />
-	  <Copy SourceFiles="@(Content)" DestinationFolder="$(OutDir)\%(Content.RelativeDir)" 
-          SkipUnchangedFiles="true"  />
+    <Copy SourceFiles="@(Content)" DestinationFolder="$(OutDir)\%(Content.RelativeDir)" SkipUnchangedFiles="true" />
   </Target>
 </Project>
